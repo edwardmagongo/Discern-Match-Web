@@ -21,10 +21,13 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
+      - name: Fix permissions
+        run: chmod +x node_modules/.bin/next
 
       - name: Build
-        run: npx next build
+        run: npm run build
 
       - name: Add .nojekyll
         run: touch out/.nojekyll
