@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-paper text-ink font-sans;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(184, 146, 74, 0.06), transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(15, 30, 45, 0.04), transparent 50%);
+    background-attachment: fixed;
+  }
+  ::selection {
+    @apply bg-gold-pale text-navy-deep;
+  }
+}
+
+@layer components {
+  .editorial-rule::before {
+    content: '';
+    @apply block w-12 h-px bg-gold mx-auto mb-6;
+  }
+  .uppercase-label {
+    @apply text-[10px] tracking-ultra uppercase font-medium text-ink-mute;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-gold text-navy-deep
+      text-[11px] tracking-widest uppercase font-semibold
+      transition-colors duration-slow ease-editorial
+      hover:bg-gold-warm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gold;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-8 py-4 border border-navy-deep text-navy-deep
+      text-[11px] tracking-widest uppercase font-medium
+      transition-colors duration-slow ease-editorial
+      hover:bg-navy-deep hover:text-cream;
+  }
+  .btn-dark {
+    @apply inline-flex items-center justify-center px-8 py-4 bg-navy-deep text-cream
+      text-[11px] tracking-widest uppercase font-medium
+      transition-opacity duration-slow ease-editorial hover:opacity-90;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+  }
+}
